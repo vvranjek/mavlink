@@ -1,3 +1,5 @@
+*.desktop
+mavlink-v*
 *~
 tags
 doc/html
