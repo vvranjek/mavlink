@@ -3308,9 +3308,14 @@
         <message id="180" name="CAP_STATUS">
              <description>Status of the C-Astral autopilot</description>
              <field type="uint8_t" name="parachute_status">Prachute status</field>
-             <field type="uint8_t" name="airspeed_cal">Airspeed sensor calibration status</field>
-             <field type="uint8_t" name="home_init">Home location status</field>
-             <field type="uint8_t" name="land_detected">Land detection status</field>
+             <field type="uint8_t" name="airspeed_cal_status">Airspeed sensor calibration status</field>
+             <field type="uint8_t" name="home_init_status">Home location status</field>
+             <field type="uint8_t" name="land_detected_status">Land detection status</field>
+             <field type="uint8_t" name="altitude_override_status">Altitude override status</field>
+             <field type="uint8_t" name="speed_override_status">Speed override status</field>
+             <field type="uint16_t" name="number_of_photos">Number of photos taken in a mission</field>
+             <field type="uint8_t" name="failsafe_status">Failsafe status</field>
+             <field type="uint16_t" name="air_time">Time since take-off</field>
         </message>
         <message id="230" name="ESTIMATOR_STATUS">
             <description>Estimator status message including flags, innovation test ratios and estimated accuracies. The flags message is an integer bitmask containing information on which EKF outputs are valid. See the ESTIMATOR_STATUS_FLAGS enum definition for further information. The innovaton test ratios show the magnitude of the sensor innovation divided by the innovation check threshold. Under normal operation the innovaton test ratios should be below 0.5 with occasional values up to 1.0. Values greater than 1.0 should be rare under normal operation and indicate that a measurement has been rejected by the filter. The user should be notified if an innovation test ratio greater than 1.0 is recorded. Notifications for values in the range between 0.5 and 1.0 should be optional and controllable by the user.</description>
