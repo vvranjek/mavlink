@@ -3331,6 +3331,7 @@
             <field name="pos_vert_accuracy" type="float">Vertical position 1-STD accuracy relative to the EKF local origin (m)</field>
         </message>
         <message id="231" name="WIND_COV">
+        <description>Wind estimator status</description>
             <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
             <field type="float" name="wind_x">Wind in X (NED) direction in m/s</field>
             <field type="float" name="wind_y">Wind in Y (NED) direction in m/s</field>
