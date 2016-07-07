@@ -1,0 +1,32 @@
+
+# Instrustions to pull, modify, merge, commit and push submodule changes
+
+# Go to submodule, merge with upstream and make changes if any
+cd mavlink-gen-cap
+git fetch upstream/master
+git merge upstream/master
+
+# Making changes now
+# Create new libraries. Use the GUI tool if the following python scrypt doesn't work
+# This will create the libs in generator/mavlink-v2.0-cap, wich is a sapperate repo.
+pymavlink/generator/mavgen.py --lang C message_definitions/v1.0/common.xml -o generator/mavlink-v2.0-cap --wire-protocol=2.0
+
+# Go to generated files and commit the changes. This is a sepparate git repo, the one that is a submodule in AP firmware
+cd generator/mavlink-v2.0-cap
+git commit -am "Update"
+git push
+
+# Go to AP firmware submodule and pull the changes
+cd /AP-Firmware/mavlink/include/mavlink/mavlink-v2.0-cap
+git checkout master
+git pull
+
+# Update the submodules to the main repo
+cd /AP-Firmware
+git add mavlink/include/mavlink/mavlink-v2.0-cap
+git commit "Updated submodules"
+git push
+
+
+# If submodules aren't in sync with upstream for some reason, run this command for each submodule
+git checkout -f upstream/master path/to/submodule
