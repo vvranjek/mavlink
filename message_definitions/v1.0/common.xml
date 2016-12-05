@@ -3470,31 +3470,6 @@
             <field type="float" name="size_y">Size in radians of target along y-axis</field>
         </message>
         <!-- MESSAGE IDs 180 - 229: Space for custom messages in individual projectname_messages.xml files -->
-        <message id="180" name="CAP_STATUS">
-             <description>Status of the C-Astral autopilot</description>
-             <field type="uint8_t" name="parachute_status">Prachute status</field>
-             <field type="uint8_t" name="airspeed_cal_status">Airspeed sensor calibration status</field>
-             <field type="uint8_t" name="home_init_status">Home location status</field>
-             <field type="uint8_t" name="land_detected_status">Land detection status</field>
-             <field type="uint8_t" name="altitude_override_status">Altitude override status</field>
-             <field type="uint8_t" name="speed_override_status">Speed override status</field>
-             <field type="uint16_t" name="number_of_photos">Number of photos taken in a mission</field>
-             <field type="uint8_t" name="failsafe_status">Failsafe status</field>
-             <field type="uint16_t" name="air_time">Time since take-off</field>
-        </message>
-        <message id="230" name="ESTIMATOR_STATUS">
-            <description>Estimator status message including flags, innovation test ratios and estimated accuracies. The flags message is an integer bitmask containing information on which EKF outputs are valid. See the ESTIMATOR_STATUS_FLAGS enum definition for further information. The innovaton test ratios show the magnitude of the sensor innovation divided by the innovation check threshold. Under normal operation the innovaton test ratios should be below 0.5 with occasional values up to 1.0. Values greater than 1.0 should be rare under normal operation and indicate that a measurement has been rejected by the filter. The user should be notified if an innovation test ratio greater than 1.0 is recorded. Notifications for values in the range between 0.5 and 1.0 should be optional and controllable by the user.</description>
-            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
-            <field name="flags" type="uint16_t" enum="ESTIMATOR_STATUS_FLAGS">Integer bitmask indicating which EKF outputs are valid. See definition for ESTIMATOR_STATUS_FLAGS.</field>
-            <field name="vel_ratio" type="float">Velocity innovation test ratio</field>
-            <field name="pos_horiz_ratio" type="float">Horizontal position innovation test ratio</field>
-            <field name="pos_vert_ratio" type="float">Vertical position innovation test ratio</field>
-            <field name="mag_ratio" type="float">Magnetometer innovation test ratio</field>
-            <field name="hagl_ratio" type="float">Height above terrain innovation test ratio</field>
-            <field name="tas_ratio" type="float">True airspeed innovation test ratio</field>
-            <field name="pos_horiz_accuracy" type="float">Horizontal position 1-STD accuracy relative to the EKF local origin (m)</field>
-            <field name="pos_vert_accuracy" type="float">Vertical position 1-STD accuracy relative to the EKF local origin (m)</field>
-        </message>
         <message id="231" name="WIND_COV">
         <description>Wind estimator status</description>
             <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
